@@ -1,0 +1,18 @@
+local function changePartsColorToBlack()
+    for _, part in ipairs(workspace:GetDescendants()) do
+        if part:IsA("BasePart") then
+
+            local parent = part.Parent
+            local isPlayerPart = false
+
+            if parent and parent:IsA("Model") and parent:FindFirstChild("Humanoid") then
+                isPlayerPart = true
+            end
+
+            if not isPlayerPart then
+                part.BrickColor = BrickColor.new("Black")
+            end
+        end
+    end
+end
+changePartsColorToBlack()
